@@ -1,0 +1,15 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2072
+
+Call 
+function! vl#lib#files#switch_files#SwitchFileUI()
+  map <m-s><m-b> :call vl#lib#files#switch_files#SwitchFile()<cr>
+endfunction
+somewhere to get the default mapping.
+
+Then use lines like this
+call vl#lib#files#switch_files#SwitchFileRegisterLocalRegexSwap('.h$', ['.cpp', '.cc' ])
+autocmd BufRead,BufNewFile /pr/*nix,/pr/*nix/*.sh call vl#lib#files#switch_files#SwitchFileRegisterLocalRegexSwap('/pr/mynix/','/pr/svnnix/')
+
+for each buffer to tell the script how to find alternates.
+
+There is also some support to add custom functions. Drop me an email if you want to know more
